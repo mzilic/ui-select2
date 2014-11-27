@@ -77,7 +77,11 @@ angular.module('ui.select2', []).value('uiSelect2Config', {}).directive('uiSelec
           delete opts.multiple;
           delete opts.initSelection;
         } else if (isMultiple) {
-          opts.multiple = true;
+			if (!isMultiple) {
+				delete opts.multiple;
+			} else {
+				opts.multiple = true;
+			}         
         }
 
         if (controller) {
